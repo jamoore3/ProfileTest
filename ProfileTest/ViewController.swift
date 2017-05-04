@@ -16,14 +16,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var genderSegment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    var childViewController: OverlayViewController! = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("Passport Profile Test: \(profiles[0].name)")
+        let storyBoard: UIStoryboard = UIStoryboard.init( name: "OverlayView", bundle: nil )
+        childViewController = storyBoard.instantiateInitialViewController() as! OverlayViewController!
+        
+        childViewController.view.backgroundColor = UIColor.clear.withAlphaComponent(0.7)
+        
+        childViewController.parentController = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,12 +52,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func onAddProfileButtonPressed(_ sender: Any) {
-        print("Add new profile button pressed")
+        view.addSubview( childViewController.view )
     }
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return profiles.count
     }
     
     // create a cell for each table view row
@@ -104,7 +111,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        let destinationViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController
+        
+        navigationController?.pushViewController(destinationViewController!, animated: true)
     }
 }
 
