@@ -13,6 +13,10 @@
 		84B78B8B1EBA73F600E4AF22 /* ProfileTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B891EBA73F600E4AF22 /* ProfileTest.xcdatamodeld */; };
 		84B78B8D1EBA73F600E4AF22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B8C1EBA73F600E4AF22 /* Assets.xcassets */; };
 		84B78B901EBA73F600E4AF22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B8E1EBA73F600E4AF22 /* LaunchScreen.storyboard */; };
+		84B78B981EBA8BD200E4AF22 /* ProfileRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B971EBA8BD200E4AF22 /* ProfileRecord.swift */; };
+		84B78B9A1EBAAAE900E4AF22 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B991EBAAAE900E4AF22 /* CustomTableViewCell.swift */; };
+		84B78BA01EBB8B4100E4AF22 /* OverlayView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B9F1EBB8B4100E4AF22 /* OverlayView.storyboard */; };
+		84B78BA21EBB8C0200E4AF22 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78BA11EBB8C0200E4AF22 /* OverlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		84B78B8C1EBA73F600E4AF22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B78B8F1EBA73F600E4AF22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B78B911EBA73F600E4AF22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B78B971EBA8BD200E4AF22 /* ProfileRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileRecord.swift; sourceTree = "<group>"; };
+		84B78B991EBAAAE900E4AF22 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		84B78B9F1EBB8B4100E4AF22 /* OverlayView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OverlayView.storyboard; sourceTree = "<group>"; };
+		84B78BA11EBB8C0200E4AF22 /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				84B78B821EBA73F600E4AF22 /* AppDelegate.swift */,
+				84B78B971EBA8BD200E4AF22 /* ProfileRecord.swift */,
 				84B78B841EBA73F600E4AF22 /* ViewController.swift */,
+				84B78B991EBAAAE900E4AF22 /* CustomTableViewCell.swift */,
 				84B78B861EBA73F600E4AF22 /* Main.storyboard */,
+				84B78BA11EBB8C0200E4AF22 /* OverlayViewController.swift */,
+				84B78B9F1EBB8B4100E4AF22 /* OverlayView.storyboard */,
 				84B78B8C1EBA73F600E4AF22 /* Assets.xcassets */,
 				84B78B8E1EBA73F600E4AF22 /* LaunchScreen.storyboard */,
 				84B78B911EBA73F600E4AF22 /* Info.plist */,
@@ -127,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B78B901EBA73F600E4AF22 /* LaunchScreen.storyboard in Resources */,
+				84B78BA01EBB8B4100E4AF22 /* OverlayView.storyboard in Resources */,
 				84B78B8D1EBA73F600E4AF22 /* Assets.xcassets in Resources */,
 				84B78B881EBA73F600E4AF22 /* Main.storyboard in Resources */,
 			);
@@ -140,7 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B78B8B1EBA73F600E4AF22 /* ProfileTest.xcdatamodeld in Sources */,
+				84B78B9A1EBAAAE900E4AF22 /* CustomTableViewCell.swift in Sources */,
 				84B78B851EBA73F600E4AF22 /* ViewController.swift in Sources */,
+				84B78BA21EBB8C0200E4AF22 /* OverlayViewController.swift in Sources */,
+				84B78B981EBA8BD200E4AF22 /* ProfileRecord.swift in Sources */,
 				84B78B831EBA73F600E4AF22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
