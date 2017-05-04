@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9MU-4x-YHr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,33 +22,186 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xq-pe-8WR">
-                                <rect key="frame" x="0.0" y="219" width="375" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ha8-YF-MHT">
+                                <rect key="frame" x="16" y="102" width="343" height="463"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRY-w5-XCy">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oES-7t-QqP">
+                                                <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-J2-yRY">
+                                                <rect key="frame" x="68" y="0.0" width="275" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-9A-ltc">
+                                        <rect key="frame" x="0.0" y="51" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:       " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-cJ-QmP">
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWQ-gy-HI3">
+                                                <rect key="frame" x="66" y="0.0" width="277" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atL-6P-a8q">
+                                        <rect key="frame" x="0.0" y="101" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-bC-eUm">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's hobbies" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWq-cl-Byy">
+                                                <rect key="frame" x="69" y="0.0" width="274" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-Ju-KI5">
+                                        <rect key="frame" x="0.0" y="152" width="343" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XO7-c1-IdQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z7a-CO-wdy">
+                                                <rect key="frame" x="97" y="0.0" width="246" height="29"/>
+                                                <segments>
+                                                    <segment title="Male"/>
+                                                    <segment title="Female"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Profile Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k95-Y1-K9n">
+                                        <rect key="frame" x="0.0" y="201" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-Bz-oz5">
+                                        <rect key="frame" x="0.0" y="242" width="343" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12U-WU-X8r">
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="100"/>
+                                                <state key="normal" title="Button" image="puppy01"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="o3o-uT-Mgd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekR-Qm-st0">
+                                                <rect key="frame" x="114" y="0.0" width="115" height="100"/>
+                                                <state key="normal" title="Button" image="puppy02"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="ws5-3U-AaX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-uE-bxj">
+                                                <rect key="frame" x="229" y="0.0" width="114" height="100"/>
+                                                <state key="normal" title="Button" image="puppy03"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="CzP-kg-3wN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="KEi-SK-nus"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZhU-D3-U9I">
+                                        <rect key="frame" x="0.0" y="363" width="343" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuv-RQ-CCD">
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="100"/>
+                                                <state key="normal" title="Button" image="kitten01"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="R4L-vf-A7y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-5z-50r">
+                                                <rect key="frame" x="114" y="0.0" width="115" height="100"/>
+                                                <state key="normal" title="Button" image="kitten02"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="4zo-fL-j5X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-sl-rVo">
+                                                <rect key="frame" x="229" y="0.0" width="114" height="100"/>
+                                                <state key="normal" title="Button" image="kitten03"/>
+                                                <connections>
+                                                    <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="9FI-dn-yWc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="RVP-NU-fbn"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="463" id="bl2-Hh-zkR"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2A-yQ-Zc5">
+                                <rect key="frame" x="141" y="604" width="94" height="30"/>
+                                <state key="normal" title="Create Profile"/>
+                                <connections>
+                                    <action selector="onCreateProfileButtonPressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="0TJ-6s-SaL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill out the form then press Create Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNK-Ce-jNw">
+                                <rect key="frame" x="31" y="50" width="314" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyG-Xj-vSd">
-                                <rect key="frame" x="137" y="283" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ott-6n-TMS"/>
-                                    <constraint firstAttribute="height" constant="100" id="vDC-K5-yut"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9xq-pe-8WR" firstAttribute="centerX" secondItem="lDl-xf-e0x" secondAttribute="centerX" id="2Q4-t8-yue"/>
-                            <constraint firstItem="GyG-Xj-vSd" firstAttribute="centerY" secondItem="lDl-xf-e0x" secondAttribute="centerY" id="7gw-Iv-yzK"/>
-                            <constraint firstItem="9xq-pe-8WR" firstAttribute="top" secondItem="mSR-s2-e2N" secondAttribute="bottom" constant="199" id="JTY-iH-lvQ"/>
-                            <constraint firstItem="GyG-Xj-vSd" firstAttribute="centerX" secondItem="lDl-xf-e0x" secondAttribute="centerX" id="LnL-Hu-boB"/>
-                            <constraint firstItem="9xq-pe-8WR" firstAttribute="leading" secondItem="lDl-xf-e0x" secondAttribute="leading" id="PVl-54-9Py"/>
-                            <constraint firstAttribute="trailing" secondItem="9xq-pe-8WR" secondAttribute="trailing" id="rW8-vO-1rz"/>
+                            <constraint firstItem="I2A-yQ-Zc5" firstAttribute="centerX" secondItem="lDl-xf-e0x" secondAttribute="centerX" id="451-dH-Akg"/>
+                            <constraint firstItem="I2A-yQ-Zc5" firstAttribute="top" secondItem="ha8-YF-MHT" secondAttribute="bottom" constant="39" id="8fM-oq-5fM"/>
+                            <constraint firstItem="tNK-Ce-jNw" firstAttribute="centerX" secondItem="lDl-xf-e0x" secondAttribute="centerX" id="8hC-H0-bR9"/>
+                            <constraint firstItem="ha8-YF-MHT" firstAttribute="trailing" secondItem="lDl-xf-e0x" secondAttribute="trailingMargin" id="NZN-rC-kpK"/>
+                            <constraint firstItem="ha8-YF-MHT" firstAttribute="top" secondItem="tNK-Ce-jNw" secondAttribute="bottom" constant="31" id="R2q-cG-s6G"/>
+                            <constraint firstItem="ha8-YF-MHT" firstAttribute="centerY" secondItem="lDl-xf-e0x" secondAttribute="centerY" id="Skg-2U-cRL"/>
+                            <constraint firstItem="tNK-Ce-jNw" firstAttribute="top" secondItem="mSR-s2-e2N" secondAttribute="bottom" constant="30" id="Xej-i4-cnk"/>
+                            <constraint firstItem="ha8-YF-MHT" firstAttribute="leading" secondItem="lDl-xf-e0x" secondAttribute="leadingMargin" id="xo4-AQ-u2f"/>
+                            <constraint firstItem="ha8-YF-MHT" firstAttribute="centerX" secondItem="lDl-xf-e0x" secondAttribute="centerX" id="yV1-ph-WDQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="image" destination="GyG-Xj-vSd" id="4Rb-YI-2zR"/>
-                        <outlet property="textLabel" destination="9xq-pe-8WR" id="CDb-5N-n9H"/>
+                        <outlet property="ageTextField" destination="eWQ-gy-HI3" id="93Y-TZ-BDy"/>
+                        <outlet property="genderSegment" destination="Z7a-CO-wdy" id="MJP-aJ-NMd"/>
+                        <outlet property="hobbiesTextField" destination="JWq-cl-Byy" id="fWO-m0-Ofi"/>
+                        <outlet property="kitten01Button" destination="Zuv-RQ-CCD" id="cPx-h8-8KP"/>
+                        <outlet property="kitten02Button" destination="8Oj-5z-50r" id="wu8-OP-TEa"/>
+                        <outlet property="kitten03Button" destination="SZp-sl-rVo" id="7TI-nX-vGS"/>
+                        <outlet property="nameTextField" destination="qjE-J2-yRY" id="jMo-1Z-TSk"/>
+                        <outlet property="puppy01Button" destination="12U-WU-X8r" id="LSJ-rS-3hz"/>
+                        <outlet property="puppy02Button" destination="ekR-Qm-st0" id="mIS-A9-g3P"/>
+                        <outlet property="puppy03Button" destination="4w0-uE-bxj" id="Mbr-QK-5He"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lLV-Ea-IDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,4 +209,12 @@
             <point key="canvasLocation" x="93.599999999999994" y="145.27736131934034"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kitten01" width="256" height="256"/>
+        <image name="kitten02" width="256" height="256"/>
+        <image name="kitten03" width="256" height="256"/>
+        <image name="puppy01" width="256" height="256"/>
+        <image name="puppy02" width="256" height="256"/>
+        <image name="puppy03" width="256" height="256"/>
+    </resources>
 </document>

@@ -111,9 +111,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationViewController = navigationController?.storyboard?.instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController
-        
-        navigationController?.pushViewController(destinationViewController!, animated: true)
+        print("loading storyboard")
+        let storyboard = UIStoryboard(name: "ProfileView", bundle: nil)
+        print("creating destination vc")
+        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+        print("Pushing on stack")
+        navigationController?.pushViewController(destinationViewController, animated: true)
     }
 }
 
