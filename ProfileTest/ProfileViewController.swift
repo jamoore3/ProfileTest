@@ -98,18 +98,18 @@ class ProfileViewController: UIViewController {
     }
     
     func prepProfileRecord() {
-        profileRecord.id = profiles[profileIndex].id
-        profileRecord.backgroundColor = profiles[profileIndex].backgroundColor
-        profileRecord.gender = profiles[profileIndex].gender
-        profileRecord.name = profiles[profileIndex].name
-        profileRecord.age = profiles[profileIndex].age
-        profileRecord.profileImage = profiles[profileIndex].profileImage
-        profileRecord.hobbies = profiles[profileIndex].hobbies
+        profileRecord.id = sortedProfiles[profileIndex].id
+        profileRecord.backgroundColor = sortedProfiles[profileIndex].backgroundColor
+        profileRecord.gender = sortedProfiles[profileIndex].gender
+        profileRecord.name = sortedProfiles[profileIndex].name
+        profileRecord.age = sortedProfiles[profileIndex].age
+        profileRecord.profileImage = sortedProfiles[profileIndex].profileImage
+        profileRecord.hobbies = sortedProfiles[profileIndex].hobbies
     }
     
     func updateProfileRecordInProfiles() {
-        profiles[profileIndex].backgroundColor = profileRecord.backgroundColor
-        profiles[profileIndex].hobbies = hobbiesTextField.text!
+        sortedProfiles[profileIndex].backgroundColor = profileRecord.backgroundColor
+        sortedProfiles[profileIndex].hobbies = hobbiesTextField.text!
     }
     
     //Calls this function when the tap is recognized.
@@ -151,7 +151,15 @@ class ProfileViewController: UIViewController {
         
         confirmAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             
-            profiles.remove(at: self.profileIndex)
+            let id: Int = sortedProfiles[self.profileIndex].id
+            sortedProfiles.remove(at: self.profileIndex)
+            for index in 0...profiles.count - 1 {
+                if profiles[index].id == id {
+                    profiles.remove(at: index)
+                    break
+                }
+            }
+            
             self.tableViewController?.tableView.reloadData()
             self.navController!.popViewController(animated: true)
         }))

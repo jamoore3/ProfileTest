@@ -36,4 +36,5 @@ var record4 = ProfileRecord( id: 3, backgroundColor: 0, gender: 0, name: "Michae
 
 
 var profiles: [ProfileRecord] = [record1, record2, record3, record4]
+var sortedProfiles: [ProfileRecord] = []
 

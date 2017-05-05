@@ -132,6 +132,7 @@ class OverlayViewController: UIViewController {
         profileRecord.hobbies = hobbiesTextField.text!
         
         profiles.append(profileRecord)
+        sortedProfiles.append(profileRecord)
     }
     
     

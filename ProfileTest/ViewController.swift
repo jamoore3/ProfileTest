@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var childViewController: OverlayViewController! = nil
     var profileViewController: ProfileViewController! = nil
     
+    var tempProfiles: [ProfileRecord] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let pvStoryBoard: UIStoryboard = UIStoryboard.init( name: "ProfileView", bundle: nil )
         profileViewController = pvStoryBoard.instantiateInitialViewController() as! ProfileViewController!
+        
+        sortedProfiles = profiles
+        tempProfiles = sortedProfiles
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,17 +45,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //Mark: Actions
+    @IBAction func onClearSortingPressed(_ sender: Any) {
+        sortedProfiles.removeAll()
+        sortedProfiles = profiles
+        tableView.reloadData()
+    }
+    
+    @IBAction func onAgeDescendPressed(_ sender: Any) {
+        let temp = sortedProfiles.sorted(by: { Int($0.age)! > Int($1.age)! })
+        sortedProfiles = temp
+        tableView.reloadData()
+    }
+    
+    @IBAction func onAgeAscendPressed(_ sender: Any) {
+        let temp = sortedProfiles.sorted(by: { Int($0.age)! < Int($1.age)! })
+        sortedProfiles = temp
+        tableView.reloadData()
+    }
+    
+    @IBAction func onNameDescendPressed(_ sender: Any) {
+        let temp = sortedProfiles.sorted(by: { $0.name > $1.name })
+        sortedProfiles = temp
+        tableView.reloadData()
+    }
+    
+    @IBAction func onNameAscendPressed(_ sender: Any) {
+        let temp = sortedProfiles.sorted(by: { $0.name < $1.name })
+        sortedProfiles = temp
+        tableView.reloadData()
+    }
+    
     @IBAction func onGenderSegmentChanged(_ sender: Any) {
-        switch genderSegment.selectedSegmentIndex {
-        case 0:
-            print("Male profiles selected")
-        case 1:
-            print("Female profiles selected")
-        case 2:
-            print("All profiles selected")
-        default:
-            print("Default segment action")
-        }
+        tableView.reloadData()
     }
     
     @IBAction func onAddProfileButtonPressed(_ sender: Any) {
@@ -59,7 +85,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profiles.count
+        
+        var count: Int = 0
+        tempProfiles.removeAll()
+        
+        for index in 0...sortedProfiles.count - 1 {
+            if (genderSegment.selectedSegmentIndex == 0 && sortedProfiles[index].gender == 0) {
+                count += 1
+                tempProfiles.append(sortedProfiles[index])
+            }
+            if (genderSegment.selectedSegmentIndex == 1 && sortedProfiles[index].gender == 1) {
+                count += 1
+                tempProfiles.append(sortedProfiles[index])
+            }
+            if (genderSegment.selectedSegmentIndex == 2) {
+                count += 1
+                tempProfiles.append(sortedProfiles[index])
+            }
+        }
+        return count
     }
     
     // create a cell for each table view row
@@ -69,20 +113,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             fatalError("The dequeued cell is not an instance of CustomTableViewCell.")
         }
         
-        cell.nameLabel.text = profiles[indexPath.row].name
-        cell.hobbiesLabel.text = profiles[indexPath.row].hobbies
+        cell.nameLabel.text = tempProfiles[indexPath.row].name
+        cell.hobbiesLabel.text = tempProfiles[indexPath.row].hobbies
         
         var genderAndAgeLabel: String
         
-        if profiles[indexPath.row].gender == 0 {
+        if tempProfiles[indexPath.row].gender == 0 {
             genderAndAgeLabel = "Male"
         } else {
             genderAndAgeLabel = "Female"
         }
-        genderAndAgeLabel += "     Age:  \(profiles[indexPath.row].age)"
+        genderAndAgeLabel += "     Age:  \(tempProfiles[indexPath.row].age)"
         cell.genderAndAgeLabel.text = genderAndAgeLabel
         
-        switch profiles[indexPath.row].backgroundColor {
+        switch tempProfiles[indexPath.row].backgroundColor {
         case 0:
             cell.backgroundColor = UIColor.blue
         case 1:
@@ -97,12 +141,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.backgroundColor = UIColor.white
         }
         
-        cell.hobbiesLabel.text = "Hobbies: \(profiles[indexPath.row].hobbies)"
+        cell.hobbiesLabel.text = "Hobbies: \(tempProfiles[indexPath.row].hobbies)"
         
         
         //Profile image
         var photo: UIImage
-        switch profiles[indexPath.row].profileImage {
+        switch tempProfiles[indexPath.row].profileImage {
         case 0:
             photo = UIImage(named: "puppy01")!
         case 1:
