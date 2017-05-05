@@ -17,18 +17,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     var childViewController: OverlayViewController! = nil
+    var profileViewController: ProfileViewController! = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let storyBoard: UIStoryboard = UIStoryboard.init( name: "OverlayView", bundle: nil )
-        childViewController = storyBoard.instantiateInitialViewController() as! OverlayViewController!
-        
+        let ovStoryBoard: UIStoryboard = UIStoryboard.init( name: "OverlayView", bundle: nil )
+        childViewController = ovStoryBoard.instantiateInitialViewController() as! OverlayViewController!
         childViewController.view.backgroundColor = UIColor.clear.withAlphaComponent(0.7)
-        
         childViewController.parentController = self
+        
+        let pvStoryBoard: UIStoryboard = UIStoryboard.init( name: "ProfileView", bundle: nil )
+        profileViewController = pvStoryBoard.instantiateInitialViewController() as! ProfileViewController!
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,12 +113,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("loading storyboard")
-        let storyboard = UIStoryboard(name: "ProfileView", bundle: nil)
-        print("creating destination vc")
-        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
-        print("Pushing on stack")
-        navigationController?.pushViewController(destinationViewController, animated: true)
+        profileViewController.parentController = navigationController
+        profileViewController.profileIndex = indexPath.row
+        
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
 }
 

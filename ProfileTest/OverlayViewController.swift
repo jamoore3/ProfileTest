@@ -82,6 +82,11 @@ class OverlayViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     func resetProfileRecord() {
         profileRecord.id = 0
         profileRecord.backgroundColor = 0
