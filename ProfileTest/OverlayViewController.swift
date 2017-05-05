@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
+
 
 class OverlayViewController: UIViewController {
     
     var parentController: ViewController? = nil
     
-    var profileRecord = ProfileRecord( id: 0, backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
+    var profileRecord = ProfileRecord( id: "", backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
@@ -88,7 +90,7 @@ class OverlayViewController: UIViewController {
     }
     
     func resetProfileRecord() {
-        profileRecord.id = 0
+        profileRecord.id = ""
         profileRecord.backgroundColor = 0
         profileRecord.gender = 0
         profileRecord.name = ""
@@ -117,7 +119,7 @@ class OverlayViewController: UIViewController {
     }
     
     func addProfileRecordToProfiles() {
-        profileRecord.id = 0
+        profileRecord.id = ""
         
         if genderSegment.selectedSegmentIndex == 0 {
             profileRecord.gender = 0
@@ -131,11 +133,30 @@ class OverlayViewController: UIViewController {
         profileRecord.age = ageTextField.text!
         profileRecord.hobbies = hobbiesTextField.text!
         
+        setProfileRecordToFirebase(profileRecord: &profileRecord)
         profiles.append(profileRecord)
         sortedProfiles.append(profileRecord)
+        
     }
     
-    
+    func setProfileRecordToFirebase(profileRecord: inout ProfileRecord) {
+        var refProfiles: FIRDatabaseReference!
+        refProfiles = FIRDatabase.database().reference().child("profiles")
+        
+        let key = refProfiles.childByAutoId().key
+        profileRecord.id = key
+        
+        let record: [String:Any] = ["id": key,
+                                    "name": profileRecord.name,
+                                    "age": profileRecord.age,
+                                    "gender": profileRecord.gender,
+                                    "hobbies": profileRecord.hobbies,
+                                    "backgroundColor": profileRecord.backgroundColor,
+                                    "profileImage": profileRecord.profileImage]
+        
+        refProfiles.child(key).setValue(record)
+    }
+
     
     @IBAction func onProfileImagePressed(_ sender: Any) {
         

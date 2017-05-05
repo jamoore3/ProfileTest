@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,11 +20,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var childViewController: OverlayViewController! = nil
     var profileViewController: ProfileViewController! = nil
     
+    var profilesList: [ProfileRecord] = []
     var tempProfiles: [ProfileRecord] = []
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         let ovStoryBoard: UIStoryboard = UIStoryboard.init( name: "OverlayView", bundle: nil )
@@ -34,13 +37,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let pvStoryBoard: UIStoryboard = UIStoryboard.init( name: "ProfileView", bundle: nil )
         profileViewController = pvStoryBoard.instantiateInitialViewController() as! ProfileViewController!
         
-        sortedProfiles = profiles
-        tempProfiles = sortedProfiles
+        getProfileRecordsFromFirebase()
+        //sortedProfiles = profiles
+        //tempProfiles = sortedProfiles
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getProfileRecordsFromFirebase() {
+        
+        var refProfiles: FIRDatabaseReference!
+        refProfiles = FIRDatabase.database().reference().child("profiles")
+        refProfiles.observe(FIRDataEventType.value, with: { (snapshot) in
+            
+            var newProfiles: [ProfileRecord] = []
+            if snapshot.childrenCount > 0 {
+                for records in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    let recordObject = records.value as? [String: AnyObject]
+                    let id = recordObject?["id"]
+                    let name = recordObject?["name"]
+                    let age = recordObject?["age"]
+                    let gender = recordObject?["gender"]
+                    let hobbies = recordObject?["hobbies"]
+                    let backgroundColor = recordObject?["backgroundColor"]
+                    let profileImage = recordObject?["profileImage"]
+                    
+                    let record = ProfileRecord(id: id as! String, backgroundColor: backgroundColor as! Int, gender: gender as! Int, name: name as! String, age: age as! String, profileImage: profileImage as! Int, hobbies: hobbies as! String)
+                    
+                    newProfiles.append(record)
+                }
+            }
+            
+            self.handleLoadFromFirebase(profileRecords: newProfiles)
+        })
+    }
+    
+    func handleLoadFromFirebase(profileRecords: [ProfileRecord]) {
+        
+        if profileRecords.count > 0 {
+            profiles = profileRecords
+            sortedProfiles = profiles
+            tempProfiles = sortedProfiles
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -85,6 +127,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if sortedProfiles.count == 0 {
+            return 0
+        }
         
         var count: Int = 0
         tempProfiles.removeAll()

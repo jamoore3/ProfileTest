@@ -10,7 +10,7 @@ import Foundation
 
 
 struct ProfileRecord {
-    var id: Int
+    var id: String
     var backgroundColor: Int
     var gender: Int
     var name: String
@@ -18,7 +18,7 @@ struct ProfileRecord {
     var profileImage: Int
     var hobbies: String
     
-    init(id: Int, backgroundColor: Int, gender: Int, name: String, age: String, profileImage: Int, hobbies: String ) {
+    init(id: String, backgroundColor: Int, gender: Int, name: String, age: String, profileImage: Int, hobbies: String ) {
         self.id = id
         self.backgroundColor = backgroundColor
         self.gender = gender
@@ -29,12 +29,15 @@ struct ProfileRecord {
     }
 }
 
+/*
 var record1 = ProfileRecord( id: 0, backgroundColor: 0, gender: 0, name: "John Anthony Moore", age: "42", profileImage: 0, hobbies: "DVDs" )
 var record2 = ProfileRecord( id: 1, backgroundColor: 1, gender: 1, name: "Celia Lalene Moore", age: "55", profileImage: 1, hobbies: "Bible" )
 var record3 = ProfileRecord( id: 2, backgroundColor: 0, gender: 0, name: "John Howard Moore", age: "64", profileImage: 2, hobbies: "News" )
 var record4 = ProfileRecord( id: 3, backgroundColor: 0, gender: 0, name: "Michael David Moore", age: "24", profileImage: 3, hobbies: "iPhone" )
+ */
 
 
-var profiles: [ProfileRecord] = [record1, record2, record3, record4]
+//var profiles: [ProfileRecord] = [record1, record2, record3, record4]
+var profiles: [ProfileRecord] = []
 var sortedProfiles: [ProfileRecord] = []
 

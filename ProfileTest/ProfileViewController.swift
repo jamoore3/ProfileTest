@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ProfileViewController: UIViewController {
     
     var navController: UINavigationController? = nil
     var tableViewController: ViewController? = nil
     var profileIndex: Int = 0
-    var profileRecord = ProfileRecord( id: 0, backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
+    var profileRecord = ProfileRecord( id: "", backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
     
     @IBOutlet weak var bgDefaultButton: UIButton!
     @IBOutlet weak var bgWhiteButton: UIButton!
@@ -110,6 +112,19 @@ class ProfileViewController: UIViewController {
     func updateProfileRecordInProfiles() {
         sortedProfiles[profileIndex].backgroundColor = profileRecord.backgroundColor
         sortedProfiles[profileIndex].hobbies = hobbiesTextField.text!
+        
+        var refProfiles: FIRDatabaseReference!
+        refProfiles = FIRDatabase.database().reference().child("profiles")
+        
+        let record: [String:Any] = ["id": profileRecord.id,
+                                    "name": profileRecord.name,
+                                    "age": profileRecord.age,
+                                    "gender": profileRecord.gender,
+                                    "hobbies": hobbiesTextField.text!,
+                                    "backgroundColor": profileRecord.backgroundColor,
+                                    "profileImage": profileRecord.profileImage]
+        
+        refProfiles.child(profileRecord.id).setValue(record)
     }
     
     //Calls this function when the tap is recognized.
@@ -151,7 +166,15 @@ class ProfileViewController: UIViewController {
         
         confirmAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             
-            let id: Int = sortedProfiles[self.profileIndex].id
+            let id: String = sortedProfiles[self.profileIndex].id
+            
+            //Delete from firebase
+            FIRDatabase.database().reference().child("profiles").child(id).removeValue { (error, ref) in
+                if error != nil {
+                    print("error \(error)")
+                }
+            }
+            
             sortedProfiles.remove(at: self.profileIndex)
             for index in 0...profiles.count - 1 {
                 if profiles[index].id == id {
