@@ -91,7 +91,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWV-wj-aDY">
                                         <rect key="frame" x="0.0" y="314.5" width="343" height="63"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Background Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybc-I9-yWU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Optional Background Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybc-I9-yWU">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="63"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
@@ -102,25 +102,33 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wch-Om-blm">
                                         <rect key="frame" x="0.0" y="377.5" width="343" height="62.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOG-BL-mux">
-                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="62.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1St-Iu-HVM">
-                                                <rect key="frame" x="68.5" y="0.0" width="68.5" height="62.5"/>
-                                                <color key="backgroundColor" red="0.0038296568999999767" green="0.98734998312413802" blue="0.11854980135862067" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxN-iT-gfW">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="62.5"/>
+                                                <state key="normal" title="Default"/>
+                                                <connections>
+                                                    <action selector="onBackgroundColorButtonPressed:" destination="BlS-EN-Hbq" eventType="touchUpInside" id="9nr-K0-nY4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dD-If-HKK">
-                                                <rect key="frame" x="137" y="0.0" width="69" height="62.5"/>
+                                                <rect key="frame" x="86" y="0.0" width="85.5" height="62.5"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="onBackgroundColorButtonPressed:" destination="BlS-EN-Hbq" eventType="touchUpInside" id="QV9-SN-9Wa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2f-jp-8YV">
-                                                <rect key="frame" x="206" y="0.0" width="68.5" height="62.5"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="86" height="62.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="onBackgroundColorButtonPressed:" destination="BlS-EN-Hbq" eventType="touchUpInside" id="lCr-Gu-USQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M02-KO-Kzr">
-                                                <rect key="frame" x="274.5" y="0.0" width="68.5" height="62.5"/>
+                                                <rect key="frame" x="257.5" y="0.0" width="85.5" height="62.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="onBackgroundColorButtonPressed:" destination="BlS-EN-Hbq" eventType="touchUpInside" id="hg2-kJ-bO9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -129,7 +137,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMX-dp-7gk">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="63"/>
-                                                <state key="normal" title="Done"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="onDoneButtonPressed:" destination="BlS-EN-Hbq" eventType="touchUpInside" id="9aW-9o-Jf4"/>
                                                 </connections>
@@ -160,8 +168,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bgBlueButton" destination="GOG-BL-mux" id="bUF-Bh-vre"/>
-                        <outlet property="bgGreenButton" destination="1St-Iu-HVM" id="ds9-4z-s53"/>
+                        <outlet property="bgDefaultButton" destination="FxN-iT-gfW" id="xBf-Hr-b0X"/>
                         <outlet property="bgRedButton" destination="5dD-If-HKK" id="aYR-9E-sJv"/>
                         <outlet property="bgWhiteButton" destination="M02-KO-Kzr" id="V1U-Ie-g3d"/>
                         <outlet property="bgYellowButton" destination="S2f-jp-8YV" id="lTb-vw-MGc"/>

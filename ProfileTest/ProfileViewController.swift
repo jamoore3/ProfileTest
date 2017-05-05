@@ -9,19 +9,22 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
+    var navController: UINavigationController? = nil
+    var tableViewController: ViewController? = nil
+    var profileIndex: Int = 0
+    var profileRecord = ProfileRecord( id: 0, backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
+    
+    @IBOutlet weak var bgDefaultButton: UIButton!
     @IBOutlet weak var bgWhiteButton: UIButton!
     @IBOutlet weak var bgYellowButton: UIButton!
     @IBOutlet weak var bgRedButton: UIButton!
-    @IBOutlet weak var bgGreenButton: UIButton!
-    @IBOutlet weak var bgBlueButton: UIButton!
+    
     @IBOutlet weak var hobbiesTextField: UITextField!
     @IBOutlet weak var genderAndAgeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
-
-    var parentController: UINavigationController? = nil
-    var profileIndex: Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +37,79 @@ class ProfileViewController: UIViewController {
         
         view.addGestureRecognizer(tap)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        prepProfileView()
+    }
+    
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (self.isMovingFromParentViewController){
+            tableViewController?.tableView.reloadData()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func prepProfileView() {
+        
+        prepProfileRecord()
+        
+        //Profile image
+        var photo: UIImage
+        switch profileRecord.profileImage {
+        case 0:
+            photo = UIImage(named: "puppy01")!
+        case 1:
+            photo = UIImage(named: "puppy02")!
+        case 2:
+            photo = UIImage(named: "puppy03")!
+        case 3:
+            photo = UIImage(named: "kitten01")!
+        case 4:
+            photo = UIImage(named: "kitten02")!
+        case 5:
+            photo = UIImage(named: "kitten03")!
+        default:
+            photo = UIImage(named: "puppy01")!
+        }
+        profileImage.image = photo
+        
+        
+        nameLabel.text = profileRecord.name
+        
+        var genderAgeText: String
+        if profileRecord.gender == 0 {
+            genderAgeText = "Male     "
+        } else {
+            genderAgeText = "Female   "
+        }
+        genderAgeText += "Age:  \(profileRecord.age)"
+        
+        genderAndAgeLabel.text = genderAgeText
+        
+        hobbiesTextField.text = profileRecord.hobbies
+    }
+    
+    func prepProfileRecord() {
+        profileRecord.id = profiles[profileIndex].id
+        profileRecord.backgroundColor = profiles[profileIndex].backgroundColor
+        profileRecord.gender = profiles[profileIndex].gender
+        profileRecord.name = profiles[profileIndex].name
+        profileRecord.age = profiles[profileIndex].age
+        profileRecord.profileImage = profiles[profileIndex].profileImage
+        profileRecord.hobbies = profiles[profileIndex].hobbies
+    }
+    
+    func updateProfileRecordInProfiles() {
+        profiles[profileIndex].backgroundColor = profileRecord.backgroundColor
+        profiles[profileIndex].hobbies = hobbiesTextField.text!
     }
     
     //Calls this function when the tap is recognized.
@@ -51,11 +123,49 @@ class ProfileViewController: UIViewController {
         return false
     }
     
+    @IBAction func onBackgroundColorButtonPressed(_ sender: Any) {
+        if sender as! UIButton === bgDefaultButton {
+            if profileRecord.gender == 0 {
+                profileRecord.backgroundColor = 0
+            } else {
+                profileRecord.backgroundColor = 1
+            }
+        }
+        
+        if sender as! UIButton === bgRedButton {
+            profileRecord.backgroundColor = 2
+        }
+        
+        if sender as! UIButton === bgYellowButton {
+            profileRecord.backgroundColor = 3
+        }
+        
+        if sender as! UIButton === bgWhiteButton {
+            profileRecord.backgroundColor = 4
+        }
+    }
+    
     @IBAction func onDeleteProfileButtonPressed(_ sender: Any) {
+        
+        let confirmAlert = UIAlertController(title: "Are you sure?", message: "The profile record will be lost.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirmAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            profiles.remove(at: self.profileIndex)
+            self.tableViewController?.tableView.reloadData()
+            self.navController!.popViewController(animated: true)
+        }))
+        
+        confirmAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        }))
+        
+        present(confirmAlert, animated: true, completion: nil)
     }
     
     @IBAction func onDoneButtonPressed(_ sender: Any) {
-        parentController!.popViewController(animated: true)
+        updateProfileRecordInProfiles()
+        tableViewController?.tableView.reloadData()
+        navController!.popViewController(animated: true)
     }
     
     /*

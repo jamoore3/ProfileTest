@@ -74,16 +74,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var genderAndAgeLabel: String
         
-        //Set cell background color
         if profiles[indexPath.row].gender == 0 {
-            cell.backgroundColor = UIColor.blue
             genderAndAgeLabel = "Male"
         } else {
-            cell.backgroundColor = UIColor.green
             genderAndAgeLabel = "Female"
         }
         genderAndAgeLabel += "     Age:  \(profiles[indexPath.row].age)"
         cell.genderAndAgeLabel.text = genderAndAgeLabel
+        
+        switch profiles[indexPath.row].backgroundColor {
+        case 0:
+            cell.backgroundColor = UIColor.blue
+        case 1:
+            cell.backgroundColor = UIColor.green
+        case 2:
+            cell.backgroundColor = UIColor.red
+        case 3:
+            cell.backgroundColor = UIColor.yellow
+        case 4:
+            cell.backgroundColor = UIColor.white
+        default:
+            cell.backgroundColor = UIColor.white
+        }
         
         cell.hobbiesLabel.text = "Hobbies: \(profiles[indexPath.row].hobbies)"
         
@@ -113,7 +125,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        profileViewController.parentController = navigationController
+        profileViewController.navController = navigationController
+        profileViewController.tableViewController = self
         profileViewController.profileIndex = indexPath.row
         
         navigationController?.pushViewController(profileViewController, animated: true)
