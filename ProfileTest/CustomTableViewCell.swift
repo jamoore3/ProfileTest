@@ -10,6 +10,7 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    // Outlets accessed by the main ViewController
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var hobbiesLabel: UILabel!
     @IBOutlet weak var genderAndAgeLabel: UILabel!

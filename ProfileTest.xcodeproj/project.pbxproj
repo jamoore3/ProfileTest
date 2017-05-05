@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8415551B1EBC3E4000C83163 /* FireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415551A1EBC3E4000C83163 /* FireDatabase.swift */; };
 		84B78B831EBA73F600E4AF22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B821EBA73F600E4AF22 /* AppDelegate.swift */; };
 		84B78B851EBA73F600E4AF22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B841EBA73F600E4AF22 /* ViewController.swift */; };
 		84B78B881EBA73F600E4AF22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B861EBA73F600E4AF22 /* Main.storyboard */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		4E2725BF7227394AD1BA5DB4 /* Pods_ProfileTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProfileTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8415551A1EBC3E4000C83163 /* FireDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireDatabase.swift; sourceTree = "<group>"; };
 		84B78B7F1EBA73F600E4AF22 /* ProfileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B78B821EBA73F600E4AF22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84B78B841EBA73F600E4AF22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				84B78B821EBA73F600E4AF22 /* AppDelegate.swift */,
-				8415551A1EBC3E4000C83163 /* FireDatabase.swift */,
 				84B78B971EBA8BD200E4AF22 /* ProfileRecord.swift */,
 				84B78B841EBA73F600E4AF22 /* ViewController.swift */,
 				84B78B991EBAAAE900E4AF22 /* CustomTableViewCell.swift */,
@@ -247,7 +244,6 @@
 				84B78BA21EBB8C0200E4AF22 /* OverlayViewController.swift in Sources */,
 				84B78BA81EBBDE4900E4AF22 /* ProfileViewController.swift in Sources */,
 				84B78B981EBA8BD200E4AF22 /* ProfileRecord.swift in Sources */,
-				8415551B1EBC3E4000C83163 /* FireDatabase.swift in Sources */,
 				84B78B831EBA73F600E4AF22 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

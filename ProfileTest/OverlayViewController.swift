@@ -12,8 +12,10 @@ import Firebase
 
 class OverlayViewController: UIViewController {
     
+    // Link to the main ViewController
     var parentController: ViewController? = nil
     
+    // Persistent profile record
     var profileRecord = ProfileRecord( id: "", backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -36,7 +38,7 @@ class OverlayViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        //Looks for single or multiple taps.
+        // Setup gesture recognizer in order to hide the text field keyboard when user taps outside of it
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         tap.cancelsTouchesInView = false
@@ -47,6 +49,7 @@ class OverlayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Initialize elements of this view
         prepOverlayView()
     }
 
@@ -68,6 +71,8 @@ class OverlayViewController: UIViewController {
     
     func prepOverlayView() {
         
+        // Initialize the interface
+        
         resetProfileRecord()
         
         resetTextFields()
@@ -75,15 +80,18 @@ class OverlayViewController: UIViewController {
         resetGenderSegment()
         
         resetProfileImages()
+        
+        // Set first image button alpha to make it appear selected by default
         puppy01Button.alpha = 0.5
     }
     
-    //Calls this function when the tap is recognized.
+    // Call this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
+    // Hides the keyboard when 'return' button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -119,6 +127,8 @@ class OverlayViewController: UIViewController {
     }
     
     func addProfileRecordToProfiles() {
+        
+        // Handles all aspects of creating a new record
         profileRecord.id = ""
         
         if genderSegment.selectedSegmentIndex == 0 {
@@ -133,6 +143,7 @@ class OverlayViewController: UIViewController {
         profileRecord.age = ageTextField.text!
         profileRecord.hobbies = hobbiesTextField.text!
         
+        // Adds the record to database and profile lists
         setProfileRecordToFirebase(profileRecord: &profileRecord)
         profiles.append(profileRecord)
         sortedProfiles.append(profileRecord)
@@ -161,6 +172,8 @@ class OverlayViewController: UIViewController {
     @IBAction func onProfileImagePressed(_ sender: Any) {
         
         resetProfileImages()
+        
+        // User selected one of the profile image buttons
         
         if sender as! UIButton === puppy01Button {
             puppy01Button.alpha = 0.5
@@ -194,6 +207,9 @@ class OverlayViewController: UIViewController {
     }
     
     @IBAction func onCreateProfileButtonPressed(_ sender: Any) {
+        
+        // Creates the new profile record, reloads the table and hides the overlay view
+        
         addProfileRecordToProfiles()
         parentController?.tableView.reloadData()
         self.view.removeFromSuperview()

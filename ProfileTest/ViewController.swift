@@ -17,10 +17,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var genderSegment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
-    var childViewController: OverlayViewController! = nil
+    // View controller references, needed in order to pass some info to them
+    var overlayViewController: OverlayViewController! = nil
     var profileViewController: ProfileViewController! = nil
-    
-    var profilesList: [ProfileRecord] = []
+
+    // A third profile list needed to handle filters
     var tempProfiles: [ProfileRecord] = []
 
     
@@ -29,17 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Setting view controller references
+        
         let ovStoryBoard: UIStoryboard = UIStoryboard.init( name: "OverlayView", bundle: nil )
-        childViewController = ovStoryBoard.instantiateInitialViewController() as! OverlayViewController!
-        childViewController.view.backgroundColor = UIColor.clear.withAlphaComponent(0.7)
-        childViewController.parentController = self
+        overlayViewController = ovStoryBoard.instantiateInitialViewController() as! OverlayViewController!
+    
+        // Lowering alpha on the overlay view background
+        overlayViewController.view.backgroundColor = UIColor.clear.withAlphaComponent(0.7)
+        overlayViewController.parentController = self
         
         let pvStoryBoard: UIStoryboard = UIStoryboard.init( name: "ProfileView", bundle: nil )
         profileViewController = pvStoryBoard.instantiateInitialViewController() as! ProfileViewController!
         
+        // Grab current records from the database
         getProfileRecordsFromFirebase()
-        //sortedProfiles = profiles
-        //tempProfiles = sortedProfiles
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func handleLoadFromFirebase(profileRecords: [ProfileRecord]) {
         
+        // Initialize all profile record collections, then reload the tableView
         if profileRecords.count > 0 {
             profiles = profileRecords
             sortedProfiles = profiles
@@ -88,11 +93,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //Mark: Actions
     @IBAction func onClearSortingPressed(_ sender: Any) {
+        // Return to default list format without sorting
         sortedProfiles.removeAll()
         sortedProfiles = profiles
         tableView.reloadData()
     }
     
+    // Various functions to handle all sorting requirements
     @IBAction func onAgeDescendPressed(_ sender: Any) {
         let temp = sortedProfiles.sorted(by: { Int($0.age)! > Int($1.age)! })
         sortedProfiles = temp
@@ -118,14 +125,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func onGenderSegmentChanged(_ sender: Any) {
+        // Just reload the table, male/female filtering is handled in the table functions below
         tableView.reloadData()
     }
     
     @IBAction func onAddProfileButtonPressed(_ sender: Any) {
-        view.addSubview( childViewController.view )
+        // Show the 'create profile' overlay view
+        view.addSubview( overlayViewController.view )
     }
     
-    // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if sortedProfiles.count == 0 {
@@ -135,6 +143,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var count: Int = 0
         tempProfiles.removeAll()
         
+        // Filter by gender selection: male/female/all
         for index in 0...sortedProfiles.count - 1 {
             if (genderSegment.selectedSegmentIndex == 0 && sortedProfiles[index].gender == 0) {
                 count += 1
@@ -152,18 +161,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return count
     }
     
-    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Setup custom table cell and fill it with profile data
         
         guard let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? CustomTableViewCell else {
             fatalError("The dequeued cell is not an instance of CustomTableViewCell.")
         }
         
+        // Name
         cell.nameLabel.text = tempProfiles[indexPath.row].name
-        cell.hobbiesLabel.text = tempProfiles[indexPath.row].hobbies
         
+        // Gender and age
         var genderAndAgeLabel: String
-        
         if tempProfiles[indexPath.row].gender == 0 {
             genderAndAgeLabel = "Male"
         } else {
@@ -172,6 +182,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         genderAndAgeLabel += "     Age:  \(tempProfiles[indexPath.row].age)"
         cell.genderAndAgeLabel.text = genderAndAgeLabel
         
+        // Background color
         switch tempProfiles[indexPath.row].backgroundColor {
         case 0:
             cell.backgroundColor = UIColor.blue
@@ -187,10 +198,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.backgroundColor = UIColor.white
         }
         
+        // Hobbies
         cell.hobbiesLabel.text = "Hobbies: \(tempProfiles[indexPath.row].hobbies)"
         
         
-        //Profile image
+        // Profile image
         var photo: UIImage
         switch tempProfiles[indexPath.row].profileImage {
         case 0:
@@ -213,8 +225,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Set some initial values in the profileViewController, then push it into view
+        
         profileViewController.navController = navigationController
         profileViewController.tableViewController = self
         profileViewController.profileIndex = indexPath.row

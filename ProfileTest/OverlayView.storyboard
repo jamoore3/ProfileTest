@@ -29,13 +29,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oES-7t-QqP">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qjE-J2-yRY">
-                                                <rect key="frame" x="68" y="0.0" width="275" height="30"/>
+                                                <rect key="frame" x="67.5" y="0.0" width="275.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -49,13 +49,13 @@
                                         <rect key="frame" x="0.0" y="51" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:       " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-cJ-QmP">
-                                                <rect key="frame" x="0.0" y="0.0" width="66" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eWQ-gy-HI3">
-                                                <rect key="frame" x="66" y="0.0" width="277" height="30"/>
+                                                <rect key="frame" x="65.5" y="0.0" width="277.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -66,16 +66,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atL-6P-a8q">
-                                        <rect key="frame" x="0.0" y="101" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="101.5" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-bC-eUm">
-                                                <rect key="frame" x="0.0" y="0.0" width="69" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter person's hobbies" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWq-cl-Byy">
-                                                <rect key="frame" x="69" y="0.0" width="274" height="30"/>
+                                                <rect key="frame" x="68.5" y="0.0" width="274.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -86,7 +86,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-Ju-KI5">
-                                        <rect key="frame" x="0.0" y="152" width="343" height="28"/>
+                                        <rect key="frame" x="0.0" y="152.5" width="343" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XO7-c1-IdQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="28"/>
@@ -105,30 +105,30 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Profile Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k95-Y1-K9n">
-                                        <rect key="frame" x="0.0" y="201" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="201" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-Bz-oz5">
-                                        <rect key="frame" x="0.0" y="242" width="343" height="100"/>
+                                        <rect key="frame" x="0.0" y="242.5" width="343" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12U-WU-X8r">
-                                                <rect key="frame" x="0.0" y="0.0" width="114" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="100"/>
                                                 <state key="normal" title="Button" image="puppy01"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="o3o-uT-Mgd"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekR-Qm-st0">
-                                                <rect key="frame" x="114" y="0.0" width="115" height="100"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="100"/>
                                                 <state key="normal" title="Button" image="puppy02"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="ws5-3U-AaX"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4w0-uE-bxj">
-                                                <rect key="frame" x="229" y="0.0" width="114" height="100"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="100"/>
                                                 <state key="normal" title="Button" image="puppy03"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="CzP-kg-3wN"/>
@@ -143,21 +143,21 @@
                                         <rect key="frame" x="0.0" y="363" width="343" height="100"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuv-RQ-CCD">
-                                                <rect key="frame" x="0.0" y="0.0" width="114" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="100"/>
                                                 <state key="normal" title="Button" image="kitten01"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="R4L-vf-A7y"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-5z-50r">
-                                                <rect key="frame" x="114" y="0.0" width="115" height="100"/>
+                                                <rect key="frame" x="114.5" y="0.0" width="114" height="100"/>
                                                 <state key="normal" title="Button" image="kitten02"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="4zo-fL-j5X"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZp-sl-rVo">
-                                                <rect key="frame" x="229" y="0.0" width="114" height="100"/>
+                                                <rect key="frame" x="228.5" y="0.0" width="114.5" height="100"/>
                                                 <state key="normal" title="Button" image="kitten03"/>
                                                 <connections>
                                                     <action selector="onProfileImagePressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="9FI-dn-yWc"/>
@@ -174,14 +174,17 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2A-yQ-Zc5">
-                                <rect key="frame" x="141" y="604" width="94" height="30"/>
-                                <state key="normal" title="Create Profile"/>
+                                <rect key="frame" x="124.5" y="604" width="127" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Create Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="onCreateProfileButtonPressed:" destination="9MU-4x-YHr" eventType="touchUpInside" id="0TJ-6s-SaL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill out the form then press Create Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNK-Ce-jNw">
-                                <rect key="frame" x="31" y="50" width="314" height="21"/>
+                                <rect key="frame" x="31.5" y="50" width="313.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

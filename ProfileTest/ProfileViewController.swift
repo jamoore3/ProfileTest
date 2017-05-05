@@ -12,9 +12,11 @@ import Firebase
 
 class ProfileViewController: UIViewController {
     
+    // References to navigation controller, table view controller and index of the selected profile record
     var navController: UINavigationController? = nil
     var tableViewController: ViewController? = nil
     var profileIndex: Int = 0
+    
     var profileRecord = ProfileRecord( id: "", backgroundColor: 0, gender: 0, name: "", age: "", profileImage: 0, hobbies: "" )
     
     @IBOutlet weak var bgDefaultButton: UIButton!
@@ -32,7 +34,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //Looks for single or multiple taps.
+
+        // Adds a gesture recognizer used to hide the text field keyboard when user taps outside of it
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         tap.cancelsTouchesInView = false
@@ -43,12 +46,14 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Initialize the view settings
         prepProfileView()
     }
     
     override func viewWillDisappear(_ animated : Bool) {
         super.viewWillDisappear(animated)
         
+        // Reloads the table view when navigating back to the main view controller
         if (self.isMovingFromParentViewController){
             tableViewController?.tableView.reloadData()
         }
@@ -83,9 +88,10 @@ class ProfileViewController: UIViewController {
         }
         profileImage.image = photo
         
-        
+        // Name
         nameLabel.text = profileRecord.name
         
+        // Gender and age
         var genderAgeText: String
         if profileRecord.gender == 0 {
             genderAgeText = "Male     "
@@ -96,10 +102,14 @@ class ProfileViewController: UIViewController {
         
         genderAndAgeLabel.text = genderAgeText
         
+        // Hobbies
         hobbiesTextField.text = profileRecord.hobbies
     }
     
     func prepProfileRecord() {
+        
+        // Initialize profile record using the global profile list
+        
         profileRecord.id = sortedProfiles[profileIndex].id
         profileRecord.backgroundColor = sortedProfiles[profileIndex].backgroundColor
         profileRecord.gender = sortedProfiles[profileIndex].gender
@@ -110,6 +120,9 @@ class ProfileViewController: UIViewController {
     }
     
     func updateProfileRecordInProfiles() {
+        
+        // Updates the profile record in the database and sorted profiles list
+        
         sortedProfiles[profileIndex].backgroundColor = profileRecord.backgroundColor
         sortedProfiles[profileIndex].hobbies = hobbiesTextField.text!
         
@@ -127,18 +140,21 @@ class ProfileViewController: UIViewController {
         refProfiles.child(profileRecord.id).setValue(record)
     }
     
-    //Calls this function when the tap is recognized.
+    // Calls this function when the tap is recognized.
     func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
+    // Executed when the user taps the return button on the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
     @IBAction func onBackgroundColorButtonPressed(_ sender: Any) {
+        
+        // Handles the logic of selecting a new background color, or reseting to default gender background colors
+        
         if sender as! UIButton === bgDefaultButton {
             if profileRecord.gender == 0 {
                 profileRecord.backgroundColor = 0
@@ -162,6 +178,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func onDeleteProfileButtonPressed(_ sender: Any) {
         
+        // Deletes profile from database and profile lists
         let confirmAlert = UIAlertController(title: "Are you sure?", message: "The profile record will be lost.", preferredStyle: UIAlertControllerStyle.alert)
         
         confirmAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
@@ -183,6 +200,7 @@ class ProfileViewController: UIViewController {
                 }
             }
             
+            // Reloads the table and navigates back to the main ViewController
             self.tableViewController?.tableView.reloadData()
             self.navController!.popViewController(animated: true)
         }))
@@ -194,6 +212,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onDoneButtonPressed(_ sender: Any) {
+        
+        // Updates database and profile lists with any changes to the profile, then returns to the main ViewController
         updateProfileRecordInProfiles()
         tableViewController?.tableView.reloadData()
         navController!.popViewController(animated: true)

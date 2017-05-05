@@ -9,6 +9,7 @@
 import Foundation
 
 
+// The main struct format for profile records
 struct ProfileRecord {
     var id: String
     var backgroundColor: Int
@@ -29,15 +30,7 @@ struct ProfileRecord {
     }
 }
 
-/*
-var record1 = ProfileRecord( id: 0, backgroundColor: 0, gender: 0, name: "John Anthony Moore", age: "42", profileImage: 0, hobbies: "DVDs" )
-var record2 = ProfileRecord( id: 1, backgroundColor: 1, gender: 1, name: "Celia Lalene Moore", age: "55", profileImage: 1, hobbies: "Bible" )
-var record3 = ProfileRecord( id: 2, backgroundColor: 0, gender: 0, name: "John Howard Moore", age: "64", profileImage: 2, hobbies: "News" )
-var record4 = ProfileRecord( id: 3, backgroundColor: 0, gender: 0, name: "Michael David Moore", age: "24", profileImage: 3, hobbies: "iPhone" )
- */
-
-
-//var profiles: [ProfileRecord] = [record1, record2, record3, record4]
+/*  Global profile records.  'profiles' is the main collection, while 'sortedProfiles' is used for all of the sorting needs. */
 var profiles: [ProfileRecord] = []
 var sortedProfiles: [ProfileRecord] = []
 
