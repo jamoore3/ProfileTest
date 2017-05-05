@@ -1,0 +1,6 @@
+framework module Pods_ProfileTest {
+  umbrella header "Pods-ProfileTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
