@@ -20,12 +20,52 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passport Programming" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPx-qR-v0s">
+                                <rect key="frame" x="76" y="115" width="223" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu0-6S-kpX">
+                                <rect key="frame" x="138" y="149.5" width="99" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Moore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX4-E6-tA1">
+                                <rect key="frame" x="129.5" y="184" width="116.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy01" translatesAutoresizingMaskIntoConstraints="NO" id="zsU-q1-g53">
+                                <rect key="frame" x="114.5" y="238" width="145" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="klY-vQ-quQ"/>
+                                    <constraint firstAttribute="width" constant="145" id="z6Y-bk-0W2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zsU-q1-g53" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1Jy-tj-Uf7"/>
+                            <constraint firstItem="kPx-qR-v0s" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1fX-dg-zJM"/>
+                            <constraint firstItem="JX4-E6-tA1" firstAttribute="top" secondItem="iu0-6S-kpX" secondAttribute="bottom" constant="8" id="EBm-T5-esr"/>
+                            <constraint firstItem="kPx-qR-v0s" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="95" id="UiY-1t-Dti"/>
+                            <constraint firstItem="zsU-q1-g53" firstAttribute="top" secondItem="JX4-E6-tA1" secondAttribute="bottom" constant="27.5" id="edy-wC-8BK"/>
+                            <constraint firstItem="iu0-6S-kpX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="k5u-Ar-Wla"/>
+                            <constraint firstItem="iu0-6S-kpX" firstAttribute="top" secondItem="kPx-qR-v0s" secondAttribute="bottom" constant="8" id="nGh-mN-mAj"/>
+                            <constraint firstItem="JX4-E6-tA1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ttB-M0-t3J"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="puppy01" width="256" height="256"/>
+    </resources>
 </document>

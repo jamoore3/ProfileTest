@@ -210,8 +210,20 @@ class OverlayViewController: UIViewController {
         
         // Creates the new profile record, reloads the table and hides the overlay view
         
-        addProfileRecordToProfiles()
-        parentController?.tableView.reloadData()
-        self.view.removeFromSuperview()
+        // Check to make sure user enters name, age, and hobbies.
+        if (nameTextField.text == "") || (ageTextField.text == "") || (hobbiesTextField.text == "") {
+            //Display an alert
+            let confirmAlert = UIAlertController(title: "Please enter all information", message: "Please enter your name, age, and hobbies.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirmAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                return
+            }))
+            
+            present(confirmAlert, animated: true, completion: nil)
+        } else {
+            addProfileRecordToProfiles()
+            parentController?.tableView.reloadData()
+            self.view.removeFromSuperview()
+        }
     }
 }
