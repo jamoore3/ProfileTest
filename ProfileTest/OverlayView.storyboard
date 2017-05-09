@@ -100,7 +100,7 @@
                                                     <segment title="Male"/>
                                                     <segment title="Female"/>
                                                 </segments>
-                                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
@@ -174,9 +174,12 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2A-yQ-Zc5">
-                                <rect key="frame" x="124.5" y="604" width="127" height="38"/>
+                                <rect key="frame" x="107.5" y="604" width="160" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="0vn-Od-c1Y"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Create Profile">
+                                <state key="normal" title="Create Profile" backgroundImage="button_slice_blue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -222,6 +225,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button_slice_blue" width="29" height="26"/>
         <image name="kitten01" width="256" height="256"/>
         <image name="kitten02" width="256" height="256"/>
         <image name="kitten03" width="256" height="256"/>
